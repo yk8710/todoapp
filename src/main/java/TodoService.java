@@ -29,10 +29,7 @@ public class TodoService {
             existingTodo.setTitle(todo.getTitle());
             existingTodo.setCompleted(todo.isCompleted());
             return todoRepository.save(existingTodo);
-        }).orElseGet(() -> {
-            todo.setId(id);
-            return todoRepository.save(todo);
-        });
+        }).orElse(null);
     }
 
     public void delete(Long id) {
